@@ -1,3 +1,5 @@
+// Profile Page
+
 import React from "react";
 // import Header from "../components/Navbar/Header";
 import styled from "styled-components";
