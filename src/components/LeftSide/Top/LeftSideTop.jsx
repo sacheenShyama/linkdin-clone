@@ -30,13 +30,13 @@ export const LeftSideTop = () => {
       <div
         className={classes.cover}
         style={{
-          backgroundImage: `url("https://media-exp1.licdn.com/dms/image/C4D16AQGRDWRtMa4Jhw/profile-displaybackgroundimage-shrink_350_1400/0/1632888002264?e=1651104000&v=beta&t=DSe4CUIPTyaKzJGqqayEnY0fy-N-Tcwc5FAyNxrNWF4")`,
+          backgroundImage: `url("https://images.unsplash.com/photo-1644982648774-83312909bbef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60")`,
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
       ></div>
-      {/* <Avatar src={user.photoURL} onClick={direct} /> */}
+      <Avatar src="https://avatars.githubusercontent.com/u/93372997?v=4" onClick={direct} />
       {/* <h4 onClick={direct} className={classes.direct}>
         {user.displayName}
       </h4> */}

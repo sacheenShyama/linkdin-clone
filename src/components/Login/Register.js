@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 
 function Register() {
 
-  
-    
+  function mytimedetail(){
+        let detail = JSON.parse(localStorage.getItem("mytime"))
+        console.log(detail)
+  }
+    mytimedetail()
 
     return (
         <div className="login">

@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../Navbar/Header";
+// import Header from "../components/Navbar/Header";
 import styled from "styled-components";
 
 const Container=styled.div`
@@ -13,7 +13,7 @@ function UserProfile(){
         <> 
         
     <Container>
-    <Header/>
+    {/* <Header/> */}
   <h1>welcome to my profile</h1>
   
     
