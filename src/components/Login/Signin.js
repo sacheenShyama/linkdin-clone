@@ -2,49 +2,46 @@ import React, { useEffect, useState } from "react";
 import "./Signin.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import {  useNavigate } from 'react-router-dom';
-import Home from "../Home/Home";
+import { useNavigate } from "react-router-dom";
 
 function Signin() {
-    const navigate=useNavigate()
-    let dusraPage=false;
+  const navigate = useNavigate();
 
   const [userName, setUserName] = useState("");
   const [userPassword, setUserPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("hello");
     console.log(userName, userPassword);
     fetchUser();
   };
 
   const fetchUser = async () => {
-    const res = await axios.get(
-      `https://pehlapehla.herokuapp.com/personal/get/${userName}`
-    );
-    // console.log(res)
-    const data1 = await res.data;
-console.log(data1)
-    console.log(data1.fullname);
-    console.log(data1.profilepicture);
-    console.log(data1.email);
-if(userName===data1.fullname&&userPassword===data1.password){
-dusraPage=true;
-}else{
-    dusraPage=false;
-}
-
-if(dusraPage){
-navigate("/home")
-{/* <Home key={{data1.fullname},{data1.profilepicture}}/> */}
-}else{
-    alert("credential doesn't match")
-}
-
+    try {
+      const res = await axios.get(
+        `https://pehlapehla.herokuapp.com/personal/get/${userName}`
+      );
+      const response = await res.data;
+      console.log("response", response);
+      if (
+        userName === response.fullname &&
+        userPassword === response.password
+      ) {
+        localStorage.setItem("loginStatusFlag", JSON.stringify(true));
+        localStorage.setItem(
+          "profilePic",
+          JSON.stringify(response.profilepicture)
+        );
+        alert("Sign In Successfully!");
+        navigate("/home");
+      } else {
+        alert("Something Went Wrong!");
+      }
+    } catch (err) {
+      console.log(err);
+      alert("credential doesn't match!");
+    }
   };
-
-
 
   useEffect(() => {
     // fetchUser();
@@ -86,7 +83,7 @@ navigate("/home")
           }}
         />
         {/* <Link to=""> */}
-          <input className="link_button" value={"submit"} type="submit" />
+        <input className="link_button" value={"submit"} type="submit" />
         {/* </Link> */}
       </form>
       <div className="google_button">

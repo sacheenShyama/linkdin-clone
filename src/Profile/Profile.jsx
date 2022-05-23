@@ -18,8 +18,7 @@ function UserProfile(){
     {/* <Header/> */}
   <h1>welcome to my profile</h1>
   
-    
-    
+  
     </Container>
     </>
     )
