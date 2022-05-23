@@ -3,6 +3,7 @@ import "./Signin.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Divider } from '@material-ui/core';
 
 function Signin() {
   const navigate = useNavigate();
@@ -63,11 +64,13 @@ function Signin() {
         Don't miss your next opportunity. Sign in to stay updated on your
         professional world.
       </h4>
+      
       <form onSubmit={handleSubmit}>
         <label>name</label>
         <input
           type="name"
           id="name"
+          style={{ paddingLeft: "10px" }}
           placeholder="enter name"
           onChange={(e) => {
             setUserName(e.target.value);
@@ -78,6 +81,8 @@ function Signin() {
           type="password"
           id="password"
           placeholder="password"
+          minLength={6}
+          style={{ paddingLeft: "10px" }}
           onChange={(e) => {
             setUserPassword(e.target.value);
           }}

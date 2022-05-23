@@ -70,6 +70,7 @@ function Signup() {
         <input
           type="password"
           id="password"
+          minLength={6}
           placeholder="Enter Your Password..."
           value={formData.password}
           onChange={handleChange}
