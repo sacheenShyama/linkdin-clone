@@ -211,7 +211,7 @@ function Header() {
     "https://avatars.githubusercontent.com/u/67849097?s=400&u=153d075f3b171a4165fab40cd88b5f6b630cedc1&v=4";
   return (
     <Container>
-      <Content>
+      <Content style={{ position: "sticky", top: "10vh"}}>
         <Logo>
           <a href="/">
             <img src="/images/home-logo.svg" alt="Logo" />
@@ -262,10 +262,7 @@ function Header() {
             </NavList>
             <User>
               <Link to="/userprofile">
-                <img
-                  src={profilePic}
-                  alt="User-Profile"
-                />
+                <img src={profilePic} alt="User-Profile" />
                 <span>Me</span>
               </Link>
               <Button
@@ -274,7 +271,7 @@ function Header() {
                 onClick={() => {
                   if (loginStatusFlag) {
                     localStorage.removeItem("loginStatusFlag");
-					localStorage.removeItem("profilePic");
+                    localStorage.removeItem("profilePic");
                     navigate("/signup");
                   } else {
                     navigate("/signin");
