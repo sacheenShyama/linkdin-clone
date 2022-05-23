@@ -5,7 +5,7 @@ import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 
 function LoginHome() {
   return (
-    <div className="container">
+    <div className="container" style={{width: "100vw"}}>
       <div className="nav">
         <a href="/">
           <img
@@ -31,6 +31,7 @@ function LoginHome() {
           <h1>Welcome to your professional community</h1>
           <img
             src="/images/login-hero.svg"
+            width={"20%"}
             alt="Welcome to your professional community"
           />
         </div>
