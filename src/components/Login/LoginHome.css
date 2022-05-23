@@ -55,7 +55,7 @@
 }
 
 .section {
-    border: 1px solid teal;
+    /* border: 1px solid teal; */
     display: flex;
     align-content: flex-start;
     min-height: 500px;
