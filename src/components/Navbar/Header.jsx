@@ -211,7 +211,7 @@ function Header() {
     "https://avatars.githubusercontent.com/u/67849097?s=400&u=153d075f3b171a4165fab40cd88b5f6b630cedc1&v=4";
   return (
     <Container>
-      <Content style={{ position: "sticky", top: "10vh"}}>
+      <Content style={{ position: "sticky", top: "0"}}>
         <Logo>
           <a href="/">
             <img src="/images/home-logo.svg" alt="Logo" />

@@ -15,7 +15,7 @@ import ReactPlayer from "react-player";
 
 export function EnterPost() {
   const classes = Style();
-  const [active, setactive] = useState("");
+  // const [active, setactive] = useState("");
   const [liked, setLiked] = useState(false);
   const [enterposts, setenterPosts] = useState([]);
   const [likesCount, setLikesCount] = useState(1);
@@ -38,6 +38,11 @@ export function EnterPost() {
   }, []);
 
   const Reactions = ({ i }) => {
+    let loginStatusFlag =
+      JSON.parse(localStorage.getItem("loginStatusFlag")) || false;
+    let profilePic =
+      JSON.parse(localStorage.getItem("profilePic")) ||
+      "https://avatars.githubusercontent.com/u/67849097?s=400&u=153d075f3b171a4165fab40cd88b5f6b630cedc1&v=4";
     return (
       <div className={classes.footer__stats}>
         <div>
