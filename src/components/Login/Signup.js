@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Signup.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Signup() {
@@ -11,6 +11,8 @@ function Signup() {
     fullname: "",
     profilepicture: "",
   });
+
+  let navigate = useNavigate();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -27,16 +29,19 @@ function Signup() {
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
-
-    console.log(formData);
+    console.log(`formdata ${formData}`);
 
     axios
       .post(`https://pehlapehla.herokuapp.com/personal/post`, formData)
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
+        console.log(`res is ${res}`);
+        alert("Registerd Successfully!");
+        navigate("/signin");
       })
       .catch((error) => {
         console.log(error.message);
+        alert("Invalid Credentials");
       });
   };
 
@@ -57,16 +62,21 @@ function Signup() {
           type="email"
           id="email"
           value={formData.email}
-          placeholder=""
+          placeholder="Enter Your Email..."
           onChange={handleChange}
+          style={{ paddingLeft: "10px" }}
+          required
         />
         <label>Password (6 or more characters)</label>
         <input
           type="password"
           id="password"
-          placeholder=""
+          minLength={6}
+          placeholder="Enter Your Password..."
           value={formData.password}
           onChange={handleChange}
+          style={{ paddingLeft: "10px" }}
+          required
         />
         <label>Full name (required if registering)</label>
         <input
@@ -74,7 +84,9 @@ function Signup() {
           id="fullname"
           onChange={handleChange}
           value={formData.fullname}
-          placeholder="enrter name"
+          placeholder="Enter Your Name"
+          style={{ paddingLeft: "10px" }}
+          required
         />
         <label>Profile picture URL (optional)</label>
         <input
@@ -83,6 +95,7 @@ function Signup() {
           onChange={handleChange}
           value={formData.profilepicture}
           placeholder="image"
+          style={{ paddingLeft: "10px" }}
         />
 
         <span>
@@ -92,7 +105,6 @@ function Signup() {
             rel="noreferrer"
             target="_blank"
           >
-            {" "}
             User Agreement
           </a>
           ,
@@ -101,7 +113,6 @@ function Signup() {
             rel="noreferrer"
             target="_blank"
           >
-            {" "}
             Privacy Policy
           </a>
           , and

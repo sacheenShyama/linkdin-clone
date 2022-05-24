@@ -6,8 +6,9 @@
 
 .nav {
     display: flex;
-    width: 1370px;
-    max-width: 1500px;
+    /* border: 1px solid black; */
+    width: 90vw;
+    max-width: 100vw;
     margin: auto;
     padding: 12px 20px 16px;
     align-items: center;
@@ -28,12 +29,15 @@
 }
 
 .nav-button-join:hover {
+    border-radius: 24px;
+    padding: 3px 15px;
     background-color: rgba(17, 2, 2, 0.144);
 }
 
 .nav-button-signin {
     border-color: #0a66c2;
     border-radius: 24px;
+    border: 1px solid #0a66c2;
     cursor: pointer;
     transition-duration: 167ms;
     font-size: 24px;
@@ -51,15 +55,16 @@
 }
 
 .section {
+    /* border: 1px solid teal; */
     display: flex;
     align-content: flex-start;
-    min-height: 700px;
-    padding-bottom: 138px;
+    min-height: 500px;
+    padding-bottom: 15px;
     padding-top: 40px;
     position: absolute;
     flex-wrap: wrap;
-    width: 100%;
-    max-width: 1128px;
+    width: 100vw;
+    max-width: 100vw;
     align-items: center;
     margin: auto;
     align-items: center;
@@ -68,7 +73,7 @@
 }
 
 .hero {
-    width: 100%;
+    width: 100vw;
     margin-left: 30px;
 }
 .google-btn{
@@ -76,16 +81,17 @@
 }
 
 .hero>h1 {
-    width: 50%;
-    font-size: 77px;
+    /* border:1px solid #0a66c2; */
+    width: 50vw;
+    font-size: 4rem;
     color: #2977c9;
     font-weight: 700;
-    line-height: 80px;
+    line-height: 70px;
 }
 
 .hero>img {
-    width: 966px;
-    height: 900px;
+    width: 50%;
+    height: 100vh;
     position: absolute;
     bottom: -2px;
     left: 50%;
@@ -93,14 +99,14 @@
 }
 
 .intent-module {
-    width: 106%;
+    width: 100%;
     margin-top: 80px;
 }
 
 .intent-module>ul>a {
     text-decoration: none;
-    width: 43%;
-    margin-bottom: 16px;
+    width: 40vw;
+    margin: 16px;
     font-size: 1.5rem;
     line-height: 1.4;
     font-weight: 300;

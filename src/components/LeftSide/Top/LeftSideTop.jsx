@@ -6,7 +6,9 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../Redux/userSlice";
 import { useNavigate } from "react-router-dom";
 
-export const LeftSideTop = () => {
+export const LeftSideTop = ({ profile }) => {
+  let profile_pic = profile;
+  console.log(`profilePic ${profile_pic}`);
   const user = useSelector(selectUser);
   const classes = Style();
   const [groups, setGroups] = useState(true);
@@ -36,7 +38,7 @@ export const LeftSideTop = () => {
           backgroundRepeat: "no-repeat",
         }}
       ></div>
-      <Avatar src="https://avatars.githubusercontent.com/u/93372997?v=4" onClick={direct} />
+      <Avatar src={profile_pic} onClick={direct} />
       {/* <h4 onClick={direct} className={classes.direct}>
         {user.displayName}
       </h4> */}

@@ -14,6 +14,11 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export function AddPost() {
+  let loginStatusFlag =
+    JSON.parse(localStorage.getItem("loginStatusFlag")) || false;
+  let profilePic =
+    JSON.parse(localStorage.getItem("profilePic")) ||
+    "https://avatars.githubusercontent.com/u/67849097?s=400&u=153d075f3b171a4165fab40cd88b5f6b630cedc1&v=4";
   const nav = useNavigate();
   const direct = () => {
     nav("/profile");
@@ -23,7 +28,7 @@ export function AddPost() {
   const classes = Styles();
   const [URL, setURL] = useState("");
   const [enterpost, setEnterpost] = useState("");
-
+  const [userDetails, setUserDetails] = useState([]);
   const [picture, setPicture] = useState(null);
   const [video, setVideo] = useState(null);
 
@@ -57,7 +62,8 @@ export function AddPost() {
         `https://pehlapehla.herokuapp.com/timeline/get`
       );
       const data = await res.data;
-      // console.log(data);
+      setUserDetails(data);
+      console.log("users",userDetails);
     };
     fetchUser();
   }, []);
@@ -70,7 +76,7 @@ export function AddPost() {
   return (
     <Paper className={classes.upload}>
       <div className={classes.upload__header}>
-        {/* <Avatar onClick={direct} src={user.photoURL} /> */}
+        <Avatar onClick={direct} src={profilePic} />
         <form className={classes.header__form} onSubmit={submitPost}>
           <input
             id="inputText"

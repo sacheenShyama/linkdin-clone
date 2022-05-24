@@ -1,14 +1,22 @@
 //Imports
-
 import React from "react";
 import styled from "styled-components";
 import { LeftSide } from "../LeftSide/LeftSide";
 import PostComponent from "../Post/PostComponent";
 import { RightSide } from "../RightSide/RightSide";
-
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 //Home component
 function Home() {
+  let navigate = useNavigate();
+  useEffect(() => {
+    let loginStatus =
+      JSON.parse(localStorage.getItem("loginStatusFlag")) || false;
+    if (!loginStatus) {
+      navigate("/signin");
+    }
+  }, [navigate]);
   return (
     <div>
       <Layout>
