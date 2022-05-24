@@ -2,6 +2,7 @@ import React from "react";
 import "../cssoffont/Materialcss.css";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { useState } from "react";
 import { Button } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import PeopleIcon from "@mui/icons-material/People";
@@ -67,11 +68,11 @@ const Search = styled.div`
 `;
 
 const SearchIcon = styled.div`
-  width: 40px;
+  width: 30px;
   z-index: 1;
   position: absolute;
-  top: 10px;
-  left: 5px;
+  top: 8px;
+  left: 7px;
   border-radius: 0 2px 2px 0;
   margin: 0;
   pointer-events: none;
@@ -202,7 +203,13 @@ const Work = styled(User)`
 
 function Header() {
   const navigate = useNavigate();
-
+  const [search, setSearch] = useState("");
+  const handleSearch = (e) => {
+    e.preventDefault();
+    console.log(search);
+    //clearing the search field
+    setSearch("");
+  }
   //Getting user login status through localstorage
   let loginStatusFlag =
     JSON.parse(localStorage.getItem("loginStatusFlag")) || false;
@@ -211,7 +218,7 @@ function Header() {
     "https://avatars.githubusercontent.com/u/67849097?s=400&u=153d075f3b171a4165fab40cd88b5f6b630cedc1&v=4";
   return (
     <Container>
-      <Content style={{ position: "sticky", top: "0"}}>
+      <Content style={{ position: "sticky", top: "0" }}>
         <Logo>
           <a href="/">
             <img src="/images/home-logo.svg" alt="Logo" />
@@ -219,10 +226,20 @@ function Header() {
         </Logo>
         <Search>
           <div>
-            <input type="text" placeholder="Search..." />
+            <form onSubmit={handleSearch}>
+              <input
+                type="text"
+                placeholder="Search..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </form>
           </div>
           <SearchIcon>
-            <SearchSharpIcon className="changefontcolor" />
+            <SearchSharpIcon
+              className="changefontcolor"
+              style={{ fontSize: "1.2rem" }}
+            />
           </SearchIcon>
         </Search>
         {/* <SignOutMobile> */}
