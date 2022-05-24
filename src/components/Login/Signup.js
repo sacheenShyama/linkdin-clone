@@ -64,6 +64,7 @@ function Signup() {
           value={formData.email}
           placeholder="Enter Your Email..."
           onChange={handleChange}
+          style={{ paddingLeft: "10px" }}
           required
         />
         <label>Password (6 or more characters)</label>
@@ -74,6 +75,7 @@ function Signup() {
           placeholder="Enter Your Password..."
           value={formData.password}
           onChange={handleChange}
+          style={{ paddingLeft: "10px" }}
           required
         />
         <label>Full name (required if registering)</label>
@@ -83,6 +85,7 @@ function Signup() {
           onChange={handleChange}
           value={formData.fullname}
           placeholder="Enter Your Name"
+          style={{ paddingLeft: "10px" }}
           required
         />
         <label>Profile picture URL (optional)</label>
@@ -92,6 +95,7 @@ function Signup() {
           onChange={handleChange}
           value={formData.profilepicture}
           placeholder="image"
+          style={{ paddingLeft: "10px" }}
         />
 
         <span>
